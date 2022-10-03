@@ -1,0 +1,52 @@
+---
+
+- hosts: test2
+  become: true
+  tasks:
+  - name: install nginx package
+    apt:
+      name: nginx
+      state: present
+  - name: install apache
+    apt:
+     name: apache2
+     state: present
+  - name: copy index file
+    copy:
+      src: /var/www/
+      dest: /var/www/
+      owner: root
+      group: root
+      mode: 644
+    notify: nginx
+
+
+
+
+
+  
+
+  - name: copy logrotate file
+    copy:
+      src: /etc/logrotate.d/nginx
+      dest: /etc/logrotate.d/nginx
+      owner: root
+      group: root
+      mode: 644
+    notify: nginx
+
+
+
+
+    
+  handlers: 
+  - name: nginx
+    systemd:
+      name: nginx
+      state: restarted
+  - name: apache
+    systemd: 
+      name: apache2
+      state: restarted
+      
+

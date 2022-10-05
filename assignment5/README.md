@@ -48,12 +48,13 @@ ansible-playbook hashi_corp_vault.yml
 ```
 ## Output of the plabook after deploying the service on the remote server
 
-<img src=/home/priyank/Pictures/Screenshots/assignment5 output/1.png>
-<img src=/home/priyank/Pictures/Screenshots/assignment5 output/2.png>
+
+
+![1](https://user-images.githubusercontent.com/114915047/194117285-b68e78a5-569e-44fa-82fd-af6e0f2e5ce9.png)
 
 
 
-
+![2](https://user-images.githubusercontent.com/114915047/194117313-9da4396d-f801-49a8-8c53-ce5b471aed84.png)
 
 
 

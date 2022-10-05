@@ -5,7 +5,8 @@
 1- master node - Python 3.10.6 | pip | ansible [core 2.13.3]
 2- remote server - Python 3.10.6 | 
 3- ssh master node to remote servers 
-4-Inventory file content
+
+## Inventory file content
 
 ```
 [amazon_debian_centos]

@@ -24,26 +24,19 @@ test1 ansible_host=35.91.73.204 ansible_user=ec2-user ansible_ssh_private_key_fi
 4- vim main.yml
 ```
   include_tasks: nginx_setup.yml
-  when: ansible_facts['distribution']=="Debian"
-
+ 
   include_tasks: tomcat_setup.yml
-  when: ansible_facts['distribution']=="Debian"
+  
 
   include_tasks: group.yml
-  when: ansible_facts['distribution']=="Debian"
-  when: ansible_facts['distribution']=="Amazon"
-
+ 
   include_tasks: mysql_setup.yml
 
   include_tasks: git_rep.yml
-  when: ansible_facts['distribution']=="Debian"
-  when: ansible_facts['distribution']=="Amazon"
+ 
 
   include_tasks: users.yml
-  when: ansible_facts['distribution']=="Debian"
-  when: ansible_fac![1](https://user-images.githubusercontent.com/114915047/194127572-956a3fd8-871c-4283-9f8b-d8e1a494282a.png)
-ts['distribution']=="Amazon"
-```
+ ``` 
 
 ## create playbook for role assignment6 i.e., assignment6.yml
 

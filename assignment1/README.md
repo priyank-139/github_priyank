@@ -20,8 +20,11 @@
 ## modules used for performoing task on the remote server 
 
 1-apt module - install nginx and apache2 service on remote server
-2-copy module - copy file /etc/logrotate.d/nginx and file /var/www to remote server 
-3-systemd module - restart nginx and apache service 
+
+2-copy module - copy file /etc/logrotate.d/nginx and file /var/www to remote server
+
+3-systemd module - restart nginx and apache service
+
 4- handlers - used to restart the service 
 
 ## Playbook name - assign1.yml

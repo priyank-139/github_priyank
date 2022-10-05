@@ -1,0 +1,8 @@
+---
+
+ - include_tasks: softwares.yml
+ - include_tasks: mvn.yml  
+
+ - include_tasks: users.yml
+
+ - include_tasks: git_rep.yml  

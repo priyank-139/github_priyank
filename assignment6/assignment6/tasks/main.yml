@@ -1,0 +1,32 @@
+---
+# tasks file for assignment6
+
+- name: install nginx
+  include_tasks: nginx_setup.yml
+  when: ansible_facts['distribution']=="Debian"
+  
+  
+
+- name: install tomcat
+  include_tasks: tomcat_setup.yml
+  
+ 
+
+
+- name: install mysql
+  include_tasks: mysql_setup.yml
+  
+  
+   
+
+- name: Repository update
+  include_tasks: git_rep.yml
+    
+
+- name: user create with .ssh utility 
+  include_tasks: users.yml  
+  
+  
+
+
+

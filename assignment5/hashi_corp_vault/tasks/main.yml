@@ -1,0 +1,17 @@
+---
+# tasks file for hashi_corp_vault
+
+- name: install hashi corp vault on  debian distribution
+  include_tasks: hashi_corp_vault_debian.yml
+  when: ansible_facts['distribution']=="Debian"
+
+
+- name: install hashi corp vault on Amazon linux distribution
+  include_tasks: hashi_corp_vault_linux.yml
+  when: ansible_facts['distribution']=="Amazon"
+
+
+- name: install hashi corp vault on Centos/RHEL linux distribution
+  include_tasks: hashi_corp_vault_centios.yml
+  when: ansible_facts['distribution']=="CentOs"  
+    

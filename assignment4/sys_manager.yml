@@ -1,0 +1,6 @@
+---
+- hosts: test2
+  become: true
+  roles:
+    - role: system_manager
+

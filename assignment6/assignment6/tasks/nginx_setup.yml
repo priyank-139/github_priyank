@@ -1,0 +1,12 @@
+---
+- name: install nginx
+  apt: name=nginx state=latest
+
+
+ 
+- name: Copy file with owner and permissions
+  copy:
+    src: /var/www/html/opstree.html
+    dest: /var/www/html/opstree.html
+  notify: Restart Nginx
+

@@ -1,0 +1,50 @@
+---
+
+  
+  
+  
+  - name: Adding group for user
+    group:
+      name: dominators
+      state: present
+
+  - name: create User
+    user: 
+      name: ankit
+      create_home: yes
+      comment: "group dominators"
+      groups: dominators
+      
+       
+    
+  
+  - name: Create SSH Folders
+    file:
+      path: /home/ankit/.ssh
+      owner: "ankit"
+      state: directory
+    
+  
+  - name: Create Authorized Keys File
+    file:
+      path: "/home/ankit/.ssh/authorized_keys"
+      state: touch
+      owner: "ankit"
+    
+  
+  - name: Copy SSH Key To Users Home Folder
+    copy:
+      src: "/home/priyank/.ssh/id_rsa.pub"
+      dest: "/home/ankit/.ssh/authorized_keys"
+      owner: "ankit"
+    
+
+  - name: Remove User Account
+    user: 
+      name: "ankit"
+      state: absent
+      remove: yes
+      force: yes
+    
+  
+

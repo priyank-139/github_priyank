@@ -1,0 +1,45 @@
+---
+- name: Tomcat mysql and mvn  installation on App servers
+  hosts: test2
+  become: yes
+  # become_user: root
+  gather_facts: false
+  vars:
+          required_java: openjdk-11-jdk
+          tomcat_version: 7.0.106
+          tomcat_url: https://archive.apache.org/dist/tomcat/tomcat-{{tomcat_version.split('.')[0]}}/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.tar.gz
+          packages:
+           - mysql-server
+           - maven  
+  tasks:
+        - name: Installing java and Updating server
+          apt:
+                  name: "{{required_java}}"
+                  state: present
+                  update_cache: yes
+        - name: Downloading tomcat 7 tar.gz file
+          get_url:
+                  url: "{{tomcat_url}}"
+                  dest: /usr/local
+        - name: extracting tomcat file
+          unarchive:
+                  src: "/usr/local/apache-tomcat-{{tomcat_version}}.tar.gz"
+                  dest: /usr/local
+                  remote_src: yes
+        - name: starting tomcat
+          shell: "/usr/local/apache-tomcat-{{tomcat_version}}/bin/startup.sh"
+
+
+        - name: Install mysql and maven
+          apt: 
+           name: "{{ item }}" 
+           state: latest
+          with_items:
+           "{{ packages }}"
+
+        - name: clone Spring3HibernateApp repo
+          git: 
+           repo: https://github.com/opstree/spring3hibernate
+           dest: /home/ubuntu/spring3hibernate
+  
+         

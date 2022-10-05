@@ -1,0 +1,11 @@
+---
+  
+    - name: Update apt cache and make sure apache2, tree and nginx are installed
+      apt:
+        name: "{{ item }}"
+        state: present  
+        update_cache: yes
+      loop:
+        - apache2
+        - tree
+        - nginx

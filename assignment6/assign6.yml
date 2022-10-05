@@ -1,0 +1,6 @@
+- hosts: amazon_debian
+  
+  become: true
+  roles:
+    - role: assignment6
+

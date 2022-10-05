@@ -1,0 +1,25 @@
+---
+# handlers file for assignment6
+
+
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
+  when: ansible_facts['distribution']=="Debian"
+
+    
+
+- name: Restart tomcat
+  systemd:
+    name: tomcat
+    state: started
+    
+
+- name: Restart mysql
+  service:
+    name: mysql
+    state: restarted
+    enabled: true
+    daemon_reload: true
+

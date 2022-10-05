@@ -1,0 +1,23 @@
+---
+
+  
+    - name: Install mysql and maven
+      apt: 
+        name: "{{ item }}" 
+        state: latest
+      with_items:
+        "{{ packages }}"
+
+    - name: clone Spring3HibernateApp repo
+      git: 
+        repo: https://github.com/opstree/spring3hibernate
+        dest: /home/ubuntu/spring3hibernate
+  
+    - name: create war file using maven
+      shell:
+        chdir: /home/ubuntu/spring3hibernate
+        cmd: export MAVEN_OPTS="-Xmx100m" && mvn clean package -DskipTests
+      register: war_output
+      
+    
+

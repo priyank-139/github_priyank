@@ -1,0 +1,49 @@
+---
+- hosts: test2
+  
+  become: yes
+  
+  gather_facts: no
+
+  vars: 
+   users:
+   - username: "priyank"
+   - username: "ankit"
+   - username: "varsha"
+   - username: "nirashu"
+   - username: "neelesh"
+   - username: "jyoti"
+  
+  tasks:
+   - name: Add group "Dominators" to remote server
+     group:
+       name: dominators
+       gid: 2010
+       state: present
+
+  
+
+
+
+   - name: Add users  to remote server
+     user:
+       name: "{{ item.username }}"
+       state: present       
+       groups: dominators
+       shell: /bin/bash 
+       comment: "team dominators"  
+     with_items: "{{ users }}"  
+
+   
+
+   - name: Remove users from remote server
+     user:
+       name: "{{item.username}}"
+       state: absent
+       remove: yes
+     with_items: "{{ users }}"    
+
+
+
+
+...

@@ -1,0 +1,5 @@
+- hosts: amazon_debian_centos
+  
+  become: true
+  roles:
+    - role: hashi_corp_vault

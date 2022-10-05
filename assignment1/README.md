@@ -18,6 +18,10 @@ modules used for performoing task on the remote server
 3-systemd module - restart nginx and apache service 
 4- handlers - used to restart the service 
 
+Playbook name - assign1.yml
+
+command to run playbook - ansible-playbook assign1.yml
+
 Output of the plabook after deploying the service on the remote server 
 
 

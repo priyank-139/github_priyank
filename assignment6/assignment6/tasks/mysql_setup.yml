@@ -1,0 +1,20 @@
+---
+- name: Installing Mysql  and dependencies
+  package:
+     name: "{{item}}"
+     state: present
+     update_cache: yes
+  with_items:
+     - mysql-server
+     - mysql-client
+     - python3-mysqldb
+     - libmysqlclient-dev
+  
+- name: start and enable mysql service
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+  notify:
+   - Restart mysql
+

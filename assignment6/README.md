@@ -41,7 +41,8 @@ test1 ansible_host=35.91.73.204 ansible_user=ec2-user ansible_ssh_private_key_fi
 
   include_tasks: users.yml
   when: ansible_facts['distribution']=="Debian"
-  when: ansible_facts['distribution']=="Amazon"
+  when: ansible_fac![1](https://user-images.githubusercontent.com/114915047/194127572-956a3fd8-871c-4283-9f8b-d8e1a494282a.png)
+ts['distribution']=="Amazon"
 ```
 
 ## create playbook for role assignment6 i.e., assignment6.yml
@@ -53,12 +54,17 @@ ansible-playbook assignmet6.yml
 
 ## output -
 
-<img src=/Pictures/Screenshots/assignmet6_ansible output/1.png>
 
-<img src=/Pictures/Screenshots/assignmet6_ansible output/2.png>
 
-<img src=/Pictures/Screenshots/assignmet6_ansible output/3.png>
+![1](https://user-images.githubusercontent.com/114915047/194127614-b68d9ca5-2849-47ad-8cc1-092224bd8fab.png)
 
+
+
+![2](https://user-images.githubusercontent.com/114915047/194127647-0fe90d29-660d-4ae5-8043-b3f5a49bf735.png)
+
+
+
+![3](https://user-images.githubusercontent.com/114915047/194127708-28517c2c-0652-453f-b97d-bc194d6a79a0.png)
 
 
 

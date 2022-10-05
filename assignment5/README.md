@@ -3,7 +3,9 @@
 ## Prerequisites 
 
 1- master node - Python 3.10.6 | pip | ansible [core 2.13.3]
-2- remote server - Python 3.10.6 | 
+
+2- remote server - Python 3.10.6 |
+
 3- ssh master node to remote servers 
 
 ## Inventory file content

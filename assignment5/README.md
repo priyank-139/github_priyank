@@ -17,9 +17,13 @@ test3 ansible_host=54.218.236.235 ansible_user=ec2-user ansible_ssh_private_key_
 ## Steps to create role for hashi corp vault installation
 
 1-ansible-galaxy init hashi_corp_vault
+
 2-cd hashi_corp_vault/
+
 3-cd tasks/
+
 4-vim hashi_corp_vault_centios.yml | hashi_corp_vault_debian.yml | hashi_corp_vault_linux.yml | main.yml
+
 5- vim main.yml
 
  ```

@@ -13,3 +13,7 @@
        name: vault
        state: present
        update_cache: true
+
+   - name: check for vault installation
+     debug:
+      msg: "vault successfully installed on Amazon linux distribution"     

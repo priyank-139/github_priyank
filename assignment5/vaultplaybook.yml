@@ -1,0 +1,44 @@
+---
+  - hosts: vault
+    become: yes
+    tasks:
+
+
+      - name: create hashicorp.list file
+        ansible.builtin.file:
+          path: /etc/apt/sources.list.d/hashicorp.list
+          owner: root
+          group: root
+          mode: '0644'
+          state: touch
+
+
+      - name: adding hashi corp repo
+        block:
+         - name: somerepo |no apt key
+           ansible.builtin.get_url:
+             url: https://apt.releases.hashicorp.com/gpg
+             dest: /usr/share/man/man1/gpg.1.gz
+
+               #  wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg >/dev/null
+
+               #  - name: Verify the key, using a fingerprint, before import
+               # ansible.builtin.rpm_key:
+               # key: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+               # fingerprint: E8A0 32E0 94D8 EB4E A189 D270 DA41 8C88 A321 9F7B
+          #error
+      - name: verify the key
+        ansible.builtin.shell: gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint
+
+
+
+      - name: add content to hashicorp.list file
+        lineinfile:
+          path: /etc/apt/sources.list.d/hashicorp.list
+          line: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+
+
+      - name: Install vault
+        ansible.builtin.apt:
+          name: vault
+          state: present
